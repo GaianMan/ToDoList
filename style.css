@@ -1,0 +1,33 @@
+#main_div{
+    border-style: dotted;
+    margin: 0 auto;
+}
+
+#main_header{
+    text-align: center;
+}
+
+#todo_box{
+    border-style: dot-dash;
+}
+
+#todo_txt{
+    border-radius: 25px;
+}
+
+.addedTxtDiv{
+
+}
+.deleteBTN{
+    margin: 10px 10px;
+}
+.checkedBTN{
+
+}
+.text{
+    border-style: solid;
+    word-wrap: break-word;
+    width: 160%;
+    border-radius: 25px;
+    margin: 0 auto;
+}
