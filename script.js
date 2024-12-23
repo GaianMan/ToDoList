@@ -1,5 +1,10 @@
-const txtBox=document.getElementById("todo_txt");
-
+/*const txtBox=document.getElementById("todo_txt");
+txtBox.addEventListener("keypress",keyEnter);
+function keyEnter(event){
+    if (event.keyCode=="Enter"){
+        addToDo();
+    }
+}*/
 function addToDo() {
     const todoBox = document.getElementById("todo_box");
     const addBTN = document.getElementById("todo_add_btn");
@@ -11,16 +16,20 @@ function addToDo() {
         const text = document.createElement("text");
         const deleteBTN = document.createElement("button");
         const checkedBTN = document.createElement("button");
+        const checkIMG=document.createElement("img");
 
         todoBox.appendChild(addedTxtDiv);
+        addedTxtDiv.appendChild(checkIMG);
         addedTxtDiv.appendChild(text);
         addedTxtDiv.appendChild(deleteBTN);
         addedTxtDiv.appendChild(checkedBTN);
+
         addedTxtDiv.className="addedTxtDiv";
         todoBox.className="todoBox";
         deleteBTN.className="deleteBTN";
         checkedBTN.className="checkedBTN";
         text.className="text";
+        checkIMG.className="checkIMG";
 
         text.textContent = addedTxt.value;
         deleteBTN.textContent ="Delete";
@@ -28,14 +37,23 @@ function addToDo() {
         //done
         {
             checkedBTN.onclick=function(){
-                text.style.color="gray";
-                text.style.textDecoration = "line-through";
+                if (checkIMG.style.display === "block") {
+                    checkIMG.style.display = "none";
+                    text.style.color = "black";
+                    text.style.textDecoration = "none";
+                } else {
+                    checkIMG.style.display = "block";
+                    checkIMG.src = "D:\\ACA\\JS Advanced\\ToDoList\\Assets\\check-mark.png";
+                    text.style.color = "gray";
+                    text.style.textDecoration = "line-through";
+                }
             }
         }
         //delete btn
         {
             deleteBTN.onclick=function (){
-                addedTxtDiv.remove();
+                let res=confirm("Are you sure you want to delete the task?");
+                if(res) addedTxtDiv.remove();
             }
         }
     };
